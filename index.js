@@ -1,28 +1,15 @@
 
-//fs for writing file
 const fs = require('fs');
-
-//inquirer for prompting user for their response
 const inquirer = require('inquirer');
-
-// importing constructor functions
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-
-//importing layout template file
-const generateTemplate = require('./src/page-template');
-
-
-//importing generate function 
+const generateTemplate = require('./src/page-template'); 
 const generateHtml = require('./generate-html');
-
-//creating empty array to store user input
-
 const teamMembers = []
 
-//prompting userinput 
+ 
 
 function userInfo() {
     inquirer.prompt([
@@ -151,8 +138,6 @@ function userInfo() {
                 addOption()
 
             }
-
-            //add option 
 
             function addOption() {
                 inquirer.prompt([

@@ -1,12 +1,7 @@
-//html template
 
 let generatehtmlPage = teamObj => {
-    console.log('team object', teamObj)
-
-   // set card to empty
     let htmlCard = ""
 
-    //loop over array of objects
 
     for(let i = 0; i < teamObj.length; i++){
         let finalPrompt = teamObj[i].office || teamObj[i].gitHub || teamObj[i].school;
@@ -25,8 +20,6 @@ let generatehtmlPage = teamObj => {
             console.log(finalOption)
         }
 
-
-       //htmll card
         let {name, role, email, id} = teamObj[i]
         htmlCard+= `
          <div class="card col" style="width: 18rem;">
@@ -91,7 +84,4 @@ let generatehtmlPage = teamObj => {
 
 
 module.exports = generatehtmlPage;
-
-
- //template for html file
 

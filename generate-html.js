@@ -1,7 +1,4 @@
-//function to write to html file
 const fs = require('fs');
-
-//write html file
 
 function writePage (html) {
     fs.writeFile('./dist/index.html', html, err =>{

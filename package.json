@@ -2,5 +2,30 @@
   "dependencies": {
     "fs": "*",
     "inquirer": "^8.1.0"
-  }
+  },
+  "name": "TeamTracker",
+  "description": "This application is an automatically generated Team Profile Tracker. This application is transmutable between a variety of different occupation genres, to offer effeciency and succient planning around your businesses individual needs.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "devDependencies": {
+    "jest": "^27.0.1"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ascendedkrishna/TeamTracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ascendedkrishna/TeamTracker/issues"
+  },
+  "homepage": "https://github.com/ascendedkrishna/TeamTracker#readme"
 }

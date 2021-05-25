@@ -1,17 +1,17 @@
 body{
     background-color: rgb(255, 255, 255);
 }
-.navbar-header {
+.jumbotron {
     float: left;
     padding: 15px;
     text-align: center;
     width: 100%;
     }
-.navbar-brand {
+.container-fluid, .jumbotron {
     float:none;
     font-size: 48px;}
 
-.navbar{
+.container-fluid, .jumbotron {
     background: rgb(255,0,0);
     color: rgb(255, 255, 255);
 }
@@ -21,9 +21,7 @@ body{
     padding: 0;
 }
 
-
-
-.card-header{
+.card-header {
     background: rgb(51,153,255)
 }
 
@@ -35,7 +33,7 @@ body{
     color:white;
 }
 
-.list-group{
+.list-group-item {
     margin: 10px;
     border: solid 2px rgba(128, 128, 128, 0.205);
     

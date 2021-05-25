@@ -11,15 +11,16 @@ const teamMembers = []
 
  
 
-function userInfo() {
+function userData() {
+
     inquirer.prompt([
         {
             type: 'input',
             message: 'Enter Employee Name: ',
             name: 'name',
-            validate: function (nameInput) {
-                if (nameInput) {
-                    return true;
+            validate: answer => {
+                if (answer !== "") {
+                  return true;
                 } else {
                     return 'Please enter Employee Name.';
                 }
@@ -30,9 +31,12 @@ function userInfo() {
             type: 'input',
             message: 'Enter Email: ',
             name: 'email',
-            validate: function (emailInput) {
-                if (emailInput) {
-                    return true;
+            validate: answer => {
+                const pass = answer.match(
+                  /\S+@\S+\.\S+/
+                );
+                if (pass) {
+                  return true;
                 } else {
                     return 'Please enter Employee e-mail address.';
                 }
@@ -43,17 +47,17 @@ function userInfo() {
             type: 'input',
             message: 'Enter Employee Id: ',
             name: 'id',
-            validate: function (idInput) {
-                if (idInput) {
-                    return true;
+            validate: answer => {
+                const pass = answer.match(
+                  /^[1-9]\d*$/
+                );
+                if (pass) {
+                  return true;
                 } else {
                     return 'Please enter Employee Id.';
                 }
             }
         },
-
-
-
         {
             type: 'list',
             message: 'Select Role: ',
@@ -71,52 +75,61 @@ function userInfo() {
                         type: 'input',
                         name: 'office',
                         message:'Enter office number:',
-                        validate: officeInput => {
-                            if (officeInput) {
-                                return true;
+                        validate: answer => {
+                            const pass = answer.match(
+                              /^[1-9]\d*$/
+                            );
+                            if (pass) {
+                              return true;
                             } else {
-                                return 'Please enter office No.';
+                                return 'Please enter Office number: ';
                             }
                         }
                         
                     }
                 ])
+
                 .then(response => {
-                    console.log(response.office);
+
                     const ManagerTeam = new Manager (answers.name, answers.email, answers.id, answers.role, response.office)
                     teamMembers.push(ManagerTeam);
                     addOption()
                 })
+
             }else if(answers.role === 'Engineer' ){
+
                 inquirer.prompt([
                     {
                         type: 'input',
-                        name: 'gitHub',
+                        name: 'github',
                         message:'Enter Github name:',
-                        validate: githubInput => {
-                            if (githubInput) {
-                                return true;
+                        validate: answer => {
+                            if (answer !== "") {
+                              return true;
                             } else {
-                                return 'Please enter gitHub username.';
+                                return 'Please enter Github username.';
                             }
                         }
                     }
                 ])
+
                 .then(response => {
-                    console.log(response.gitHub);
-                    const EngineerTeam = new Engineer (answers.name, answers.email, answers.id, answers.role, response.gitHub)
+
+                    const EngineerTeam = new Engineer (answers.name, answers.email, answers.id, answers.role, response.github)
                     teamMembers.push(EngineerTeam);
                     addOption()
                 })
+
             } else if (answers.role === 'Intern'){
+
                 inquirer.prompt([
                     {
                         type: 'input',
                         name: 'school',
                         message:'Enter School name:', 
-                        validate: function (schoolInput) {
-                            if (schoolInput) {
-                                return true;
+                        validate: answer => {
+                            if (answer !== "") {
+                              return true;
                             } else {
                                 return 'Please enter school  name.';
                             }
@@ -124,8 +137,9 @@ function userInfo() {
 
                     }
                 ])
-                .then(response =>{
-                    console.log(response.school);
+
+                .then(response => {
+
                     const internTeam = new Intern (answers.name,  answers.email, answers.id, answers.role, response.school)
                     teamMembers.push(internTeam);
                     addOption()
@@ -133,6 +147,7 @@ function userInfo() {
             }
 
             else {
+
                 const employeeTeam = new Employee (answers.name, answers.email, answers.id, answers.role);
                 teamMembers.push(employeeTeam);
                 addOption()
@@ -140,6 +155,7 @@ function userInfo() {
             }
 
             function addOption() {
+
                 inquirer.prompt([
                     {
                         type:'confirm',
@@ -147,11 +163,15 @@ function userInfo() {
                         message:'Would you like to add another Employee?'
                     }
                 ])
-                .then(res =>{
+
+                .then(res => {
+
                     if(res.addMore === true){
-                        userInfo(teamMembers);
-                    }else{
-                        console.log('team', teamMembers)
+
+                        userData(teamMembers);
+
+                    } else {
+                        
                         let cardLayoutHtml = generateTemplate(teamMembers);
                         generateHtml(cardLayoutHtml)
                     }
@@ -161,6 +181,6 @@ function userInfo() {
 }
 
 
-userInfo();
+userData();
 
 

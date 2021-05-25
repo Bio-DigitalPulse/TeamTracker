@@ -1,7 +1,5 @@
 const Employee = require ('../lib/Employee');
 
-//name,email,id,role validation
-
 const employeeTest = new Employee ('Aaron', 'Aaron.k.keller@gmail.com', 3 , "Employee");
 
 
@@ -12,12 +10,12 @@ describe('Employee', () => {
         expect(employeeTest.name.length).toBeGreaterThan(2)
     })
 
-    it('has an email id', () => {
+    it('has an email address', () => {
 
         expect(employeeTest.email).toEqual(expect.stringContaining('@'))
     })
 
-    it('has an id that is a num', () => {
+    it('has an ID that is a number', () => {
 
         expect(employeeTest.id).toEqual(expect.any(Number))
     })

@@ -3,29 +3,29 @@ const Engineer = require('../lib/Engineer');
 
 const engineerTest = new Engineer ('Aaron', 'Aaron.k.keller@gmail.com', 2, 'Engineer', 'ascendedkrishna')
 
-describe("Engineer", () =>{
-    it('has a name', () =>{
+describe("Engineer", () => {
+    it('has a name', () => {
 
         expect(engineerTest.name).toEqual(expect.any(String))
         expect(engineerTest.name.length).toBeGreaterThan(2)
 
     })
-    it('has an email id', () =>{
+    it('has an email address', () => {
 
         expect(engineerTest.email).toEqual(expect.stringContaining('@'))
     })
 
-    it('has an id that is a num', () => {
+    it('has an ID that is a number', () => {
 
         expect(engineerTest.id).toEqual(expect.any(Number))
     })
 
-    it('has a role of engineer', () => {
+    it('has a role of Engineer', () => {
 
         expect(engineerTest.role).toBe('Engineer')
     })
 
-    it('has a github username', () => {
+    it('has a Github username', () => {
 
         keys = Object.keys(engineerTest)
         optionKey = keys[4]

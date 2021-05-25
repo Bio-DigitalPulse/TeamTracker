@@ -12,7 +12,7 @@ const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
 
 //importing layout template file
-const generateTemplate = require('./src/layout-template');
+const generateTemplate = require('./src/page-template');
 
 
 //importing generate function 

@@ -2,7 +2,7 @@ const Intern = require ('../lib/Intern');
 
 const internTest = new Intern ('Aaron', 'Aaron.k.keller@gmail.com', 3 , 'Intern', 'UWA')
 
-describe('Intern', () => {
+describe('Intern', () => {      //Test to confirm that the prototypes function as designed and includes all relevant information
     it('has a name', () => {
 
         expect(internTest.name).toEqual(expect.any(String))

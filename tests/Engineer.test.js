@@ -3,7 +3,7 @@ const Engineer = require('../lib/Engineer');
 
 const engineerTest = new Engineer ('Aaron', 'Aaron.k.keller@gmail.com', 2, 'Engineer', 'ascendedkrishna')
 
-describe("Engineer", () => {
+describe("Engineer", () => {        //Test to confirm that the prototypes function as designed and includes all relevant information
     it('has a name', () => {
 
         expect(engineerTest.name).toEqual(expect.any(String))

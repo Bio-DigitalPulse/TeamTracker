@@ -1,17 +1,15 @@
-
-const fs = require('fs');
-const inquirer = require('inquirer');
+const inquirer = require('inquirer');       //Declared variables 
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const generateTemplate = require('./src/page-template'); 
-const generateHtml = require('./generate-html');
+const pageTemplate = require('./src/page-template'); 
+const generatePage = require('./generate-html');
 const teamMembers = []
 
  
 
-function userData() {
+function userData() {       //User data function to populate the application
 
     inquirer.prompt([
         {
@@ -19,9 +17,13 @@ function userData() {
             message: 'Enter Employee Name: ',
             name: 'name',
             validate: answer => {
+
                 if (answer !== "") {
+
                   return true;
+
                 } else {
+                    
                     return 'Please enter Employee Name.';
                 }
             }
@@ -32,13 +34,18 @@ function userData() {
             message: 'Enter Email: ',
             name: 'email',
             validate: answer => {
+
                 const pass = answer.match(
-                  /\S+@\S+\.\S+/
+                  /\S+@\S+\.\S+/        //Email address must include (name)@(name).com
                 );
+
                 if (pass) {
+
                   return true;
+
                 } else {
-                    return 'Please enter Employee e-mail address.';
+
+                    return 'Please enter Employee E-mail address.';
                 }
             }
         },
@@ -48,16 +55,22 @@ function userData() {
             message: 'Enter Employee Id: ',
             name: 'id',
             validate: answer => {
+
                 const pass = answer.match(
-                  /^[1-9]\d*$/
+                  /^[1-9]\d*$/      //ID must be numbers between 1 and 9
                 );
+
                 if (pass) {
+
                   return true;
+
                 } else {
-                    return 'Please enter Employee Id.';
+
+                    return 'Please enter Employee Identification Number.';
                 }
             }
         },
+
         {
             type: 'list',
             message: 'Select Role: ',
@@ -67,6 +80,7 @@ function userData() {
         },
 
     ])
+
     .then(answers => {
 
             if (answers.role === 'Manager') {
@@ -74,14 +88,19 @@ function userData() {
                     {
                         type: 'input',
                         name: 'office',
-                        message:'Enter office number:',
+                        message:'Enter Office Number:',
                         validate: answer => {
+
                             const pass = answer.match(
                               /^[1-9]\d*$/
                             );
+
                             if (pass) {
+
                               return true;
+
                             } else {
+
                                 return 'Please enter Office number: ';
                             }
                         }
@@ -104,9 +123,13 @@ function userData() {
                         name: 'github',
                         message:'Enter Github name:',
                         validate: answer => {
+
                             if (answer !== "") {
+
                               return true;
+
                             } else {
+
                                 return 'Please enter Github username.';
                             }
                         }
@@ -128,10 +151,14 @@ function userData() {
                         name: 'school',
                         message:'Enter School name:', 
                         validate: answer => {
+
                             if (answer !== "") {
+
                               return true;
+
                             } else {
-                                return 'Please enter school  name.';
+
+                                return 'Please enter school name.';
                             }
                         }
 
@@ -140,7 +167,7 @@ function userData() {
 
                 .then(response => {
 
-                    const internTeam = new Intern (answers.name,  answers.email, answers.id, answers.role, response.school)
+                    const internTeam = new Intern (answers.name, answers.email, answers.id, answers.role, response.school)
                     teamMembers.push(internTeam);
                     addOption()
                 })
@@ -172,8 +199,8 @@ function userData() {
 
                     } else {
                         
-                        let cardLayoutHtml = generateTemplate(teamMembers);
-                        generateHtml(cardLayoutHtml)
+                        let employeeCards = pageTemplate(teamMembers);
+                        generatePage(employeeCards)
                     }
                 })
             }

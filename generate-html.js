@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-function createFile (html) {
+function createFile (html) {        //Function to create directory files
 
     fs.writeFile('./dist/index.html', html, err => {
 

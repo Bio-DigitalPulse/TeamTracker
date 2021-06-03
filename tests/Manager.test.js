@@ -3,7 +3,7 @@ const Manager = require ('../lib/Manager');
 
 const managerTest = new Manager ('Aaron', 'Aaron.k.keller@gmail.com', 4 , 'Manager', 109)
 
-describe('Manager', () => {
+describe('Manager', () => {     //Test to confirm that the prototypes function as designed and includes all relevant information
     it('has a name', () => {
 
         expect(managerTest.name).toEqual(expect.any(String))

@@ -1,40 +1,42 @@
-body{
-    background-color: rgb(255, 255, 255);
+body {
+    background-color: lightgray;
 }
+
 .jumbotron {
+    width: 100%;
     float: left;
     padding: 15px;
     text-align: center;
-    width: 100%;
-    }
+}
+
+.container-fluid, .jumbotron {
+    background: red;
+    color: white;
+}
+
 .container-fluid, .jumbotron {
     float:none;
-    font-size: 48px;}
-
-.container-fluid, .jumbotron {
-    background: rgb(255,0,0);
-    color: rgb(255, 255, 255);
+    font-size: 48px;
 }
 
-.card{
+.card {
     margin: 20px;
     padding: 0;
-}
-
-.card-header {
-    background: rgb(51,153,255)
 }
 
 .card-title {
     color:white;
 }
 
-.text-muted {
-    color:white;
+.card-header {
+    background: blue;
 }
 
 .list-group-item {
-    margin: 10px;
     border: solid 2px rgba(128, 128, 128, 0.205);
-    
+    margin: 10px;
+}
+
+.text-muted {
+    color:white;
 }

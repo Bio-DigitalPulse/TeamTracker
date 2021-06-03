@@ -24,7 +24,7 @@ THEN I exit the application, and the HTML is generated
 
 
 A link to the video demonstrating this applications functionality, click here:
-
+https://www.awesomescreenshot.com/video/3998993?key=9c81dca6d035fbd7268b1efed4e1ecd4
 
 The following link is the Github profie where this code can be sourced:
 https://github.com/ascendedkrishna/TeamTracker.git
